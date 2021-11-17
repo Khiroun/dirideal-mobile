@@ -45,7 +45,7 @@ export default function App() {
       androidClientId:
         "1097253873155-v6hq86846ka4dulu2sb59lo0rrbaaaj2.apps.googleusercontent.com",
       scopes: ["profile", "email"],
-      //   redirectUrl: `${Linking.makeUrl()}:/oauthredirect`,
+      redirectUrl: `${Linking.makeUrl()}:/oauthredirect`,
     }).then((logInResult) => {
       console.log({ logInResult });
       if (logInResult.type === "success") {
