@@ -25,7 +25,12 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.dirideal.amine",
-      "googleServicesFile": "./google-services.json"
+      "config": {
+        "googleSignIn":{
+          "apiKey": "AIzaSyDEYbUsuLttYibgO8OdLfDvOOaRhFUJqGg",
+          "certificateHash": "9D:8B:5B:06:84:CF:A2:38:78:42:CE:34:BC:AB:0B:45:E3:63:F3:B7"
+        }
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"

@@ -8,6 +8,7 @@ import "firebase/storage";
 import "firebase/firestore";
 
 import * as GoogleAuthentication from "expo-google-app-auth";
+import * as Linking from "expo-linking";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDOeHNqEkFHB7wYv3r-mc5gO7oIVxtKT5k",
@@ -24,7 +25,7 @@ if (getApps().length === 0) {
   app = initializeApp(firebaseConfig);
 }
 
-const auth = getAuth(app);
+export const auth = getAuth(app);
 
 export const signInWithGoogle = () => {
   console.log("Google");
@@ -36,6 +37,7 @@ export const signInWithGoogle = () => {
     androidClientId:
       "1097253873155-v6hq86846ka4dulu2sb59lo0rrbaaaj2.apps.googleusercontent.com",
     scopes: ["profile", "email"],
+    redirectUrl: `${Linking.makeUrl()}:/oauthredirect`,
   }).then((logInResult) => {
     console.log({ logInResult });
     if (logInResult.type === "success") {
