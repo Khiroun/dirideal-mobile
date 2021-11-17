@@ -24,7 +24,7 @@
         "foregroundImage": "./assets/images/icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.dirideal"
+      "package": "com.dirideal.amine"
     },
     "web": {
       "favicon": "./assets/favicon.png"

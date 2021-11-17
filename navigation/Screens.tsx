@@ -200,7 +200,7 @@ function SettingsStack() {
   );
 }
 
-function ComponentsStack(props) {
+function ComponentsStack() {
   return (
     <Stack.Navigator
       initialRouteName="Components"
@@ -220,13 +220,19 @@ function ComponentsStack(props) {
   );
 }
 
-export default function OnboardingStack(props) {
+export default function OnboardingStack() {
   return (
-    <Stack.Navigator mode="card" headerMode="none">
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        presentation: "card",
+      }}
+      initialRouteName="App"
+    >
       <Stack.Screen
         name="Onboarding"
         component={OnboardingScreen}
-        option={{
+        options={{
           headerTransparent: true,
         }}
       />
@@ -235,7 +241,7 @@ export default function OnboardingStack(props) {
   );
 }
 
-function WomanStack(props) {
+function WomanStack() {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
@@ -664,7 +670,7 @@ function KidsStack(props) {
   );
 }
 
-function NewCollectionStack(props) {
+function NewCollectionStack() {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
       <Stack.Screen
@@ -807,9 +813,14 @@ function NewCollectionStack(props) {
   );
 }
 
-function HomeStack(props) {
+function HomeStack() {
   return (
-    <Stack.Navigator mode="card" headerMode="screen">
+    <Stack.Navigator
+      screenOptions={{
+        headerMode: "screen",
+        presentation: "card",
+      }}
+    >
       <Stack.Screen
         name="Home"
         component={HomeScreen}
@@ -950,7 +961,7 @@ function HomeStack(props) {
   );
 }
 
-function AppStack(props) {
+function AppStack() {
   return (
     <Drawer.Navigator
       style={{ flex: 1 }}
@@ -980,12 +991,13 @@ function AppStack(props) {
           fontWeight: "normal",
         },
       }}
-      initialRouteName="Home"
+      initialRouteName="HomeStack"
     >
       <Drawer.Screen
-        name="Home"
+        name="HomeStack"
         component={HomeStack}
         options={{
+          headerShown: false,
           drawerIcon: ({ focused }) => (
             <Icon
               size={16}
@@ -1000,6 +1012,7 @@ function AppStack(props) {
         name="Woman"
         component={WomanStack}
         options={{
+          headerShown: false,
           drawerIcon: ({ focused }) => (
             <Icon
               size={16}
