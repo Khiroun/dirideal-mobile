@@ -28,7 +28,7 @@ const auth = getAuth(app);
 
 export const signInWithGoogle = () => {
   console.log("Google");
-  GoogleAuthentication.logInAsync({
+  return GoogleAuthentication.logInAsync({
     androidStandaloneAppClientId:
       "1097253873155-v6hq86846ka4dulu2sb59lo0rrbaaaj2.apps.googleusercontent.com",
     iosClientId:
@@ -36,20 +36,15 @@ export const signInWithGoogle = () => {
     androidClientId:
       "1097253873155-v6hq86846ka4dulu2sb59lo0rrbaaaj2.apps.googleusercontent.com",
     scopes: ["profile", "email"],
-  })
-    .then((logInResult) => {
-      console.log({ logInResult });
-      if (logInResult.type === "success") {
-        const { idToken, accessToken } = logInResult;
-        const credential = GoogleAuthProvider.credential(idToken, accessToken);
+  }).then((logInResult) => {
+    console.log({ logInResult });
+    if (logInResult.type === "success") {
+      const { idToken, accessToken } = logInResult;
+      const credential = GoogleAuthProvider.credential(idToken, accessToken);
 
-        return signInWithCredential(auth, credential);
-        // Successful sign in is handled by firebase.auth().onAuthStateChanged
-      }
-      return Promise.reject(); // Or handle user cancelation separatedly
-    })
-    .catch((error) => {
-      // ...
-      console.log({ error });
-    });
+      return signInWithCredential(auth, credential);
+      // Successful sign in is handled by firebase.auth().onAuthStateChanged
+    }
+    return Promise.reject(); // Or handle user cancelation separatedly
+  });
 };

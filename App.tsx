@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Platform, StatusBar, StyleSheet, Text, View } from "react-native";
+import {
+  Platform,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import AppLoading from "./components/AppLoading";
 import { Block, GalioProvider } from "galio-framework";
 import { NavigationContainer } from "@react-navigation/native";
@@ -9,9 +16,28 @@ import { signInWithGoogle } from "./firebase";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function App() {
+  const [error, setError] = useState("");
+  const [result, setResult] = useState("");
+  const handleSignInWithGoogle = () => {
+    signInWithGoogle()
+      .then((res) => {
+        setResult(JSON.stringify({ res }));
+      })
+      .catch((error) => {
+        setError(JSON.stringify(error));
+      });
+  };
+  if (error || result) {
+    return (
+      <ScrollView>
+        <Text>{error}</Text>
+        <Text>{result}</Text>
+      </ScrollView>
+    );
+  }
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={signInWithGoogle}>
+      <TouchableOpacity onPress={handleSignInWithGoogle}>
         <Text>Sign in with google</Text>
       </TouchableOpacity>
     </View>

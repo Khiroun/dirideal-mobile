@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1097253873155",
+    "project_id": "dirideal-ca7bd",
+    "storage_bucket": "dirideal-ca7bd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097253873155:android:27c8d4d2ff436b0dcd1036",
+        "android_client_info": {
+          "package_name": "com.dirideal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1097253873155-1f9s4kdo8pnivbu5uh1so8scbt90fpip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEYbUsuLttYibgO8OdLfDvOOaRhFUJqGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1097253873155-1f9s4kdo8pnivbu5uh1so8scbt90fpip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
